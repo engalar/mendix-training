@@ -11,6 +11,7 @@ export interface GroupBoxContainerProps {
     style?: CSSProperties;
     tabIndex?: number;
     sampleText: string;
+    slogan: string;
 }
 
 export interface GroupBoxPreviewProps {
@@ -23,4 +24,5 @@ export interface GroupBoxPreviewProps {
     styleObject?: CSSProperties;
     readOnly: boolean;
     sampleText: string;
+    slogan: string;
 }
