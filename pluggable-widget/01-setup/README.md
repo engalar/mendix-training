@@ -1,6 +1,6 @@
 # 前置知识
 
-[https://docs.mendix.com/howto/extensibility/build-native-widget/](https://docs.mendix.com/howto/extensibility/build-native-widget/)
+[pluggable-widgets](https://docs.mendix.com/howto/extensibility/pluggable-widgets/)
 
 # 课程内容
 
