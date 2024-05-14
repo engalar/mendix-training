@@ -29,6 +29,7 @@ npm install -g @mendix/generator-widget
 ```
 yo @mendix/widget GroupBox
 ```
+
 运行后可以得到如下目录结构：
 
-参见git提交 [b53304a](https://github.com/engalar/mendix-training/commit/b53304aee22d0b8083ca0f9a7b32217139e1826b)
+参见 git 提交 [b53304a](https://github.com/engalar/mendix-training/commit/b53304aee22d0b8083ca0f9a7b32217139e1826b)
