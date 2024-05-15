@@ -7,13 +7,14 @@
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="sampleText" type="string" required="false">
-                <caption>Default value</caption>
-                <description>Sample text input</description>
-            </property>
-            <property key="slogan" type="string">
-                <caption>口号</caption>
-                <description/>
+            <property key="myBlockTitle" type="textTemplate">
+                <caption>Input title</caption>
+                <description>Title for the color input</description>
+                <translations>
+                    <translation lang="en_US">Computer</translation>
+                    <translation lang="zh_CN">电脑</translation>
+                    <translation lang="zh_TW">電腦</translation>
+                </translations>
             </property>
         </propertyGroup>
     </properties>

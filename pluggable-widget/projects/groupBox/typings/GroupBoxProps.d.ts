@@ -4,14 +4,14 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
+import { DynamicValue } from "mendix";
 
 export interface GroupBoxContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    sampleText: string;
-    slogan: string;
+    myBlockTitle: DynamicValue<string>;
 }
 
 export interface GroupBoxPreviewProps {
@@ -23,6 +23,5 @@ export interface GroupBoxPreviewProps {
     style: string;
     styleObject?: CSSProperties;
     readOnly: boolean;
-    sampleText: string;
-    slogan: string;
+    myBlockTitle: string;
 }
