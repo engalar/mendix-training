@@ -4,14 +4,17 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { DynamicValue } from "mendix";
+import { ActionValue, ListValue, ListAttributeValue, SelectionSingleValue, SelectionMultiValue } from "mendix";
 
 export interface GroupBoxContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    myBlockTitle: DynamicValue<string>;
+    data: ListValue;
+    myAttribute: ListAttributeValue<string>;
+    onSelectionChange?: ActionValue;
+    selection?: SelectionSingleValue | SelectionMultiValue;
 }
 
 export interface GroupBoxPreviewProps {
@@ -23,5 +26,8 @@ export interface GroupBoxPreviewProps {
     style: string;
     styleObject?: CSSProperties;
     readOnly: boolean;
-    myBlockTitle: string;
+    data: {} | { caption: string } | { type: string } | null;
+    myAttribute: string;
+    onSelectionChange: {} | null;
+    selection: "None" | "Single" | "Multi";
 }

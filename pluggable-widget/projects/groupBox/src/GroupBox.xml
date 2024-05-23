@@ -7,14 +7,29 @@
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="myBlockTitle" type="textTemplate">
-                <caption>Input title</caption>
-                <description>Title for the color input</description>
-                <translations>
-                    <translation lang="en_US">Computer</translation>
-                    <translation lang="zh_CN">电脑</translation>
-                    <translation lang="zh_TW">電腦</translation>
-                </translations>
+            <property key="data" type="datasource" isList="true" required="true">
+                <caption>Data source</caption>
+                <description />
+            </property>
+            <property key="myAttribute" type="attribute" dataSource="data">
+                <caption>My attribute</caption>
+                <description>My attribute description</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="onSelectionChange" type="action">
+                <caption>On selection change</caption>
+                <description>This action will be triggered when the selection changes.</description>
+            </property>
+            <property key="selection" type="selection" dataSource="data">
+                <caption>Selection</caption>
+                <description />
+                <selectionTypes>
+                    <selectionType name="None" />
+                    <selectionType name="Single" />
+                    <selectionType name="Multi" />
+                </selectionTypes>
             </property>
         </propertyGroup>
     </properties>
