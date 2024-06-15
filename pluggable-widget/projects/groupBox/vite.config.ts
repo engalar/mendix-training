@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import vitePluginMendix from "@engalar/vite-plugin-mendix";
+import vitePluginMendix from "D:/Users/eg/Documents/GitHub/vite-plugin-monorepo/packages/vite-plugin-mendix/src/index.ts";
 import pkg from "./package.json";
 
 // https://vitejs.dev/config/
