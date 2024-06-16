@@ -100,41 +100,61 @@ export type PreviewProps =
     | DatasourceProps;
 
 export function getProperties(
-    _values: GroupBoxPreviewProps,
+    values: GroupBoxPreviewProps,
     defaultProperties: Properties /* , target: Platform*/
 ): Properties {
     // Do the values manipulation here to control the visibility of properties in Studio and Studio Pro conditionally.
-    /* Example
-    if (values.myProperty === "custom") {
-        delete defaultProperties.properties.myOtherProperty;
+    if (values.slogan === "custom") {
+        // defaultProperties[0].properties[0].key=="slogan";
+        //find key is sampleText
+        function removeByKey(key: string, properties: Properties) {
+            for (const propertyGroup of properties) {
+                if (propertyGroup.properties) {
+                    for (let i = 0; i < propertyGroup.properties.length; i++) {
+                        if (propertyGroup.properties[i].key === key) {
+                            propertyGroup.properties.splice(i, 1);
+                            i--; // Adjust index due to removal
+                        }
+                    }
+                }
+            }
+        }
+        removeByKey("sampleText", defaultProperties);
+        //remove sampleText property
     }
-    */
     return defaultProperties;
 }
 
-// export function check(_values: GroupBoxPreviewProps): Problem[] {
-//     const errors: Problem[] = [];
-//     // Add errors to the above array to throw errors in Studio and Studio Pro.
-//     /* Example
-//     if (values.myProperty !== "custom") {
-//         errors.push({
-//             property: `myProperty`,
-//             message: `The value of 'myProperty' is different of 'custom'.`,
-//             url: "https://github.com/myrepo/mywidget"
-//         });
-//     }
-//     */
-//     return errors;
-// }
+export function check(values: GroupBoxPreviewProps): Problem[] {
+    const errors: Problem[] = [];
+    if (values.slogan !== "123") {
+        errors.push({
+            property: `solgon~~`,
+            message: `slogan should be "123"`,
+            url: "https://github.com/myrepo/mywidget"
+        });
+    }
+    errors.push({
+        property: `solgon~~`,
+        message: `slogan should be "123"`,
+        url: "https://github.com/myrepo/mywidget"
+    });
 
-// export function getPreview(values: GroupBoxPreviewProps, isDarkMode: boolean, version: number[]): PreviewProps {
-//     // Customize your pluggable widget appearance for Studio Pro.
-//     return {
-//         type: "Container",
-//         children: []
-//     }
-// }
+    return errors;
+}
 
-// export function getCustomCaption(values: GroupBoxPreviewProps, platform: Platform): string {
-//     return "GroupBox";
-// }
+export function getPreview(values: GroupBoxPreviewProps, isDarkMode: boolean, version: number[]): PreviewProps {
+    // Customize your pluggable widget appearance for Studio Pro.
+    return {
+        type: "Container",
+        children: [
+            { type: "Text", content: values.slogan },
+            { type: "Text", content: isDarkMode ? "Dark mode" : "Light mode" },
+            { type: "Text", content: `Mendix ${version[0]}.${version[1]}.${version[2]}` }
+        ]
+    };
+}
+
+export function getCustomCaption(values: GroupBoxPreviewProps, platform: Platform): string {
+    return `GroupBox ${values.slogan} ${platform}`;
+}

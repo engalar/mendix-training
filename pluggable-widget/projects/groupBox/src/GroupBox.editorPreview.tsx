@@ -3,7 +3,11 @@ import { HelloWorldSample } from "./components/HelloWorldSample";
 import { GroupBoxPreviewProps } from "../typings/GroupBoxProps";
 
 export function preview({ sampleText }: GroupBoxPreviewProps): ReactElement {
-    return <HelloWorldSample sampleText={sampleText} />;
+    return <div>
+        <HelloWorldSample sampleText={sampleText} />
+        <br />
+        <span>This is a preview of the GroupBox widget.</span>
+    </div>;
 }
 
 export function getPreviewCss(): string {
