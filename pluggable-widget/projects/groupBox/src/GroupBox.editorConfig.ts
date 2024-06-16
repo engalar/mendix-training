@@ -1,3 +1,4 @@
+import { hidePropertiesIn } from "@mendix/pluggable-widgets-tools";
 import { GroupBoxPreviewProps } from "../typings/GroupBoxProps";
 
 export type Platform = "web" | "desktop";
@@ -103,41 +104,23 @@ export function getProperties(
     values: GroupBoxPreviewProps,
     defaultProperties: Properties /* , target: Platform*/
 ): Properties {
-    // Do the values manipulation here to control the visibility of properties in Studio and Studio Pro conditionally.
-    if (values.slogan === "custom") {
-        // defaultProperties[0].properties[0].key=="slogan";
-        //find key is sampleText
-        function removeByKey(key: string, properties: Properties) {
-            for (const propertyGroup of properties) {
-                if (propertyGroup.properties) {
-                    for (let i = 0; i < propertyGroup.properties.length; i++) {
-                        if (propertyGroup.properties[i].key === key) {
-                            propertyGroup.properties.splice(i, 1);
-                            i--; // Adjust index due to removal
-                        }
-                    }
-                }
-            }
-        }
-        removeByKey("sampleText", defaultProperties);
-        //remove sampleText property
+    if (values.slogan === "2") {
+        hidePropertiesIn(defaultProperties, values, ["sampleText"]);
     }
     return defaultProperties;
 }
 
 export function check(values: GroupBoxPreviewProps): Problem[] {
     const errors: Problem[] = [];
-    if (values.slogan !== "123") {
+    if (values.slogan !== "1") {
         errors.push({
             property: `solgon~~`,
-            message: `slogan should be "123"`,
-            url: "https://github.com/myrepo/mywidget"
+            message: `slogan should be "1"`
         });
     }
     errors.push({
-        property: `solgon~~`,
-        message: `slogan should be "123"`,
-        url: "https://github.com/myrepo/mywidget"
+        property: "onClick",
+        message: '"On click action" must be set to "Do nothing" when "Selection" is enabled'
     });
 
     return errors;
